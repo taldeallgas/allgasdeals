@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Allgas Deals — Melhores ofertas do Mercado Livre com curadoria. Economize com produtos verificados e links diretos.">
+<meta name="keywords" content="ofertas mercado livre, cupons, promoções, eletrônicos baratos, ferramentas">
+<title>Allgas Deals — Ofertas Quentes do ML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: rgba(255,255,255,0.07);
+    --accent: #FFE600;
+    --accent2: #FF4500;
+    --text: #f0ede6;
+    --muted: #7a7870;
+    --green: #00e676;
+    --card-radius: 14px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .logo span { color: var(--text); }
+  nav { display: flex; gap: 24px; align-items: center; }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--text); }
+  .nav-badge {
+    background: var(--accent2);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 80px 5vw 60px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(255,230,0,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,69,0,0.12);
+    border: 1px solid rgba(255,69,0,0.25);
+    color: #ff7043;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero-label::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #ff4500;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 9vw, 110px);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  h1 .accent { color: var(--accent); }
+  .hero-sub {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 440px;
+    font-weight: 300;
+    margin-bottom: 36px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.5px; }
+
+  /* TICKER */
+  .ticker {
+    background: var(--accent);
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+  }
+  .ticker-inner span { margin: 0 40px; }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* FILTROS */
+  .filters {
+    padding: 28px 5vw 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-label { color: var(--muted); font-size: 13px; margin-right: 4px; }
+  .filter-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #000;
+    font-weight: 600;
+  }
+
+  /* GRID DE PRODUTOS */
+  .section {
+    padding: 32px 5vw 60px;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+  .section-count {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 16px;
+  }
+
+  /* CARD DE PRODUTO */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .card:hover {
+    border-color: rgba(255,230,0,0.25);
+    transform: translateY(-2px);
+  }
+  .card-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    z-index: 2;
+  }
+  .badge-extra { background: var(--accent2); color: white; }
+  .badge-hot { background: var(--accent); color: #000; }
+  .badge-deal { background: #1a1a2e; color: #7c83ff; border: 1px solid rgba(124,131,255,0.3); }
+  .card-img {
+    aspect-ratio: 1;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .card:hover .card-img img { transform: scale(1.04); }
+  .card-body {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-category {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 14px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .price-block {}
+  .price-old {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--text);
+  }
+  .price-cents {
+    font-size: 16px;
+    vertical-align: super;
+    line-height: 1;
+  }
+  .commission {
+    background: rgba(0,230,118,0.1);
+    border: 1px solid rgba(0,230,118,0.2);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .card-cta {
+    display: block;
+    margin: 14px 16px 16px;
+    background: var(--accent);
+    color: #000;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 11px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .card-cta:hover { background: #fff176; }
+  .card-cta:active { transform: scale(0.98); }
+
+  /* BANNER TELEGRAM */
+  .telegram-banner {
+    margin: 0 5vw 40px;
+    background: linear-gradient(135deg, #0d1f3c 0%, #0a2f1a 100%);
+    border: 1px solid rgba(255,230,0,0.15);
+    border-radius: var(--card-radius);
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+  .telegram-banner::before {
+    content: '✈';
+    position: absolute;
+    right: -20px; top: -30px;
+    font-size: 160px;
+    opacity: 0.04;
+  }
+  .telegram-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .telegram-text p { color: var(--muted); font-size: 14px; }
+  .telegram-btn {
+    background: #229ED9;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .telegram-btn:hover { background: #1a8abe; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer p { color: var(--muted); font-size: 13px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--accent); }
+
+  /* ANIMAÇÕES DE ENTRADA */
+  .card { animation: fadeUp 0.4s both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.10s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.20s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+  .card:nth-child(6) { animation-delay: 0.30s; }
+  .card:nth-child(7) { animation-delay: 0.35s; }
+  .card:nth-child(8) { animation-delay: 0.40s; }
+
+  @media (max-width: 600px) {
+    header { padding: 0 4vw; }
+    nav { gap: 12px; }
+    .hero { padding: 50px 4vw 40px; }
+    .section { padding: 24px 4vw 40px; }
+    .telegram-banner { padding: 24px 20px; }
+    .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .card-title { font-size: 13px; }
+    .price { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">ALLGAS<span>DEALS</span></a>
+  <nav>
+    <a href="#ofertas">Ofertas</a>
+    <a href="#sobre">Sobre</a>
+    <a href="https://t.me/allgasdeals" target="_blank">Telegram <span class="nav-badge">NOVO</span></a>
+  </nav>
+</header>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>🔥 Creatina 250g — R$39,90 + 16% cashback</span>
+    <span>⚡ Cabo Elétrico 2,5mm 100m — R$58,15 + 20% cashback</span>
+    <span>🎮 PS5 Slim + Astro Bot + GT7 — R$3.999</span>
+    <span>🛠 Kit 46 Ferramentas Quicko — R$29,90</span>
+    <span>📺 Smart TV Samsung 32" 2025 — R$1.139</span>
+    <span>🚿 Lavadora Portátil 2 Baterias — R$125,90 + 16%</span>
+    <span>🔥 Creatina 250g — R$39,90 + 16% cashback</span>
+    <span>⚡ Cabo Elétrico 2,5mm 100m — R$58,15 + 20% cashback</span>
+    <span>🎮 PS5 Slim + Astro Bot + GT7 — R$3.999</span>
+    <span>🛠 Kit 46 Ferramentas Quicko — R$29,90</span>
+    <span>📺 Smart TV Samsung 32" 2025 — R$1.139</span>
+    <span>🚿 Lavadora Portátil 2 Baterias — R$125,90 + 16%</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-label">Atualizado diariamente</div>
+  <h1>OFERTAS<br><span class="accent">QUENTES</span><br>DO ML.</h1>
+  <p class="hero-sub">Curadoria automática das melhores promoções do Mercado Livre. Sem enrolação, só o que vale a pena.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num" id="count-products">18</span>
+      <span class="stat-label">ofertas ativas</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">20%</span>
+      <span class="stat-label">cashback máximo</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">0</span>
+      <span class="stat-label">enrolação</span>
+    </div>
+  </div>
+</section>
+
+<!-- FILTROS -->
+<div class="filters" id="ofertas">
+  <span class="filter-label">Filtrar:</span>
+  <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
+  <button class="filter-btn" onclick="filterProducts('eletronicos', this)">Eletrônicos</button>
+  <button class="filter-btn" onclick="filterProducts('ferramentas', this)">Ferramentas</button>
+  <button class="filter-btn" onclick="filterProducts('saude', this)">Saúde & Beleza</button>
+  <button class="filter-btn" onclick="filterProducts('pets', this)">Pets</button>
+  <button class="filter-btn" onclick="filterProducts('casa', this)">Casa</button>
+  <button class="filter-btn" onclick="filterProducts('extra', this)">🔥 Ganhos Extra</button>
+</div>
+
+<!-- GRID PRODUTOS -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Destaques de Hoje</h2>
+    <span class="section-count" id="product-count">18 produtos</span>
+  </div>
+
+  <div class="grid" id="products-grid">
+
+    <!-- PRODUTO 1 -->
+    <div class="card" data-category="saude" data-extra="true">
+      <span class="card-badge badge-extra">Ganho Extra</span>
+      <div class="card-img">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_849758-MLB75557984076_042024-O.webp" alt="Creatina" onerror="this.parentNode.innerHTML='💪'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Suplementos</span>
+        <p class="card-title">Creatina Monohidratada 250g Growth Supplements — Sem Sabor Em Pó</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$39<span class="price-cents">,90</span></div>
+          </div>
+          <span class="commission">+16%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/creatina-monohidratada-250g-growth?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 2 -->
+    <div class="card" data-category="eletronicos" data-extra="false">
+      <span class="card-badge badge-hot">Mais Vendido</span>
+      <div class="card-img">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_moto-g06.webp" alt="Moto G06" onerror="this.parentNode.innerHTML='📱'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Smartphones</span>
+        <p class="card-title">Motorola Moto G06 — 128GB 12GB RAM, Câmera 50MP, Bateria 5200mAh</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$750</div>
+          </div>
+          <span class="commission">+5%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/moto-g06?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 3 -->
+    <div class="card" data-category="ferramentas" data-extra="false">
+      <span class="card-badge badge-deal">Oferta Imperdível</span>
+      <div class="card-img">
+        <img src="" alt="Parafusadeira" onerror="this.parentNode.innerHTML='🔧'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Ferramentas</span>
+        <p class="card-title">Parafusadeira The Black Tools TB-21PX Profissional — 2 Baterias + Maleta</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$179<span class="price-cents">,90</span></div>
+          </div>
+          <span class="commission">+12%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/parafusadeira-tb21px?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 4 -->
+    <div class="card" data-category="ferramentas" data-extra="false">
+      <span class="card-badge badge-hot">Mais Vendido</span>
+      <div class="card-img">
+        <img src="" alt="Kit Ferramentas" onerror="this.parentNode.innerHTML='🧰'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Ferramentas</span>
+        <p class="card-title">Kit 46 Peças com Maleta — Chaves, Soquetes, Allen, Catraca Quicko</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$29<span class="price-cents">,90</span></div>
+          </div>
+          <span class="commission">+12%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/kit-ferramentas-quicko?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 5 -->
+    <div class="card" data-category="eletronicos" data-extra="false">
+      <span class="card-badge badge-deal">Oferta Imperdível</span>
+      <div class="card-img">
+        <img src="" alt="Impressora Epson" onerror="this.parentNode.innerHTML='🖨️'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Impressoras</span>
+        <p class="card-title">Epson EcoTank L3250 — Multifuncional Colorida Wi-Fi</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$1.081</div>
+          </div>
+          <span class="commission">+5%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/epson-l3250?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 6 -->
+    <div class="card" data-category="eletronicos" data-extra="true">
+      <span class="card-badge badge-extra">Ganho Extra</span>
+      <div class="card-img">
+        <img src="" alt="Lavadora Portátil" onerror="this.parentNode.innerHTML='🚿'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Casa & Jardim</span>
+        <p class="card-title">Lavadora Portátil a Bateria — 2 Baterias + Maleta Inclusa</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$125<span class="price-cents">,90</span></div>
+          </div>
+          <span class="commission">+16%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/lavadora-portatil?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 7 -->
+    <div class="card" data-category="eletronicos" data-extra="true">
+      <span class="card-badge badge-extra">Ganho Extra 20%</span>
+      <div class="card-img">
+        <img src="" alt="Cabo Elétrico" onerror="this.parentNode.innerHTML='⚡'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Elétrica</span>
+        <p class="card-title">Cabo Flexível 2,5mm Rolo 100m 750V — Fio Unipolar</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$58<span class="price-cents">,15</span></div>
+          </div>
+          <span class="commission">+20%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/cabo-flexivel-2-5mm?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 8 -->
+    <div class="card" data-category="eletronicos" data-extra="false">
+      <span class="card-badge badge-hot">Mais Vendido</span>
+      <div class="card-img">
+        <img src="" alt="PS5 Slim" onerror="this.parentNode.innerHTML='🎮'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Games</span>
+        <p class="card-title">PlayStation 5 Slim Digital — Astro Bot + Gran Turismo 7 Inclusos</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$3.999</div>
+          </div>
+          <span class="commission">+12%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/ps5-slim-digital?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 9 -->
+    <div class="card" data-category="saude" data-extra="true">
+      <span class="card-badge badge-extra">Ganho Extra 20%</span>
+      <div class="card-img">
+        <img src="" alt="Body Splash" onerror="this.parentNode.innerHTML='🌸'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Beleza</span>
+        <p class="card-title">Body Splash My Sweet Delight Barbour's Beauty — Cedro, Peônia, Líchia 200ml</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$45<span class="price-cents">,10</span></div>
+          </div>
+          <span class="commission">+20%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/body-splash-barbours?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 10 -->
+    <div class="card" data-category="ferramentas" data-extra="true">
+      <span class="card-badge badge-extra">Ganho Extra</span>
+      <div class="card-img">
+        <img src="" alt="Balança Comercial" onerror="this.parentNode.innerHTML='⚖️'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Equipamentos</span>
+        <p class="card-title">Balança Basto Comercial Digital 40kg Bivolt — Mercado, Indústria, Açougue</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$169<span class="price-cents">,99</span></div>
+          </div>
+          <span class="commission">+16%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/balanca-basto-40kg?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 11 -->
+    <div class="card" data-category="pets" data-extra="false">
+      <span class="card-badge badge-hot">Mais Vendido</span>
+      <div class="card-img">
+        <img src="" alt="Ração Golden" onerror="this.parentNode.innerHTML='🐱'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Pets</span>
+        <p class="card-title">Ração Golden Gatos Adultos Castrados — Salmão 10kg</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$199</div>
+          </div>
+          <span class="commission">+12%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/racao-golden-gatos?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 12 -->
+    <div class="card" data-category="eletronicos" data-extra="false">
+      <span class="card-badge badge-hot">Mais Vendido</span>
+      <div class="card-img">
+        <img src="" alt="Notebook Dell" onerror="this.parentNode.innerHTML='💻'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Notebooks</span>
+        <p class="card-title">Dell Inspiron 15 — i5, 8GB RAM, 512GB SSD, Windows 11</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$4.024</div>
+          </div>
+          <span class="commission">+5%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/dell-inspiron-i5?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 13 -->
+    <div class="card" data-category="ferramentas" data-extra="false">
+      <span class="card-badge badge-deal">Oferta Imperdível</span>
+      <div class="card-img">
+        <img src="" alt="Esmerilhadeira Bosch" onerror="this.parentNode.innerHTML='🔩'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Ferramentas Elétricas</span>
+        <p class="card-title">Esmerilhadeira Bosch Professional GWS 700 — 710W 220V</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$251<span class="price-cents">,90</span></div>
+          </div>
+          <span class="commission">+12%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/bosch-gws700?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 14 -->
+    <div class="card" data-category="eletronicos" data-extra="true">
+      <span class="card-badge badge-extra">Ganho Extra</span>
+      <div class="card-img">
+        <img src="" alt="Módulo Taramps" onerror="this.parentNode.innerHTML='🔊'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Som Automotivo</span>
+        <p class="card-title">Módulo Taramps TS400x4 — 400W 4 Canais 2 Ohms Amplificador</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$255<span class="price-cents">,58</span></div>
+          </div>
+          <span class="commission">+16%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/taramps-ts400x4?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 15 -->
+    <div class="card" data-category="eletronicos" data-extra="false">
+      <span class="card-badge badge-hot">Mais Vendido</span>
+      <div class="card-img">
+        <img src="" alt="Smart TV Samsung" onerror="this.parentNode.innerHTML='📺'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Televisores</span>
+        <p class="card-title">Smart TV Samsung H5000F 32" HD 2025 — Bivolt</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$1.139</div>
+          </div>
+          <span class="commission">+5%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/smart-tv-samsung-32?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 16 -->
+    <div class="card" data-category="saude" data-extra="false">
+      <span class="card-badge badge-deal">Oferta Imperdível</span>
+      <div class="card-img">
+        <img src="" alt="Aparador Mondial" onerror="this.parentNode.innerHTML='✂️'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Beleza & Cuidados</span>
+        <p class="card-title">Aparador de Pelos Mondial Super Groom 10 — Bivolt Completo</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$99<span class="price-cents">,90</span></div>
+          </div>
+          <span class="commission">+16%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/aparador-mondial?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 17 -->
+    <div class="card" data-category="eletronicos" data-extra="false">
+      <span class="card-badge badge-hot">Mais Vendido</span>
+      <div class="card-img">
+        <img src="" alt="Monitor LG" onerror="this.parentNode.innerHTML='🖥️'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Monitores</span>
+        <p class="card-title">Monitor LG 22MP410 — 21.5" FHD 75Hz FreeSync HDMI</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$479</div>
+          </div>
+          <span class="commission">+5%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/monitor-lg-22mp410?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+    <!-- PRODUTO 18 -->
+    <div class="card" data-category="casa" data-extra="true">
+      <span class="card-badge badge-extra">Ganho Extra</span>
+      <div class="card-img">
+        <img src="" alt="Cadeira de Banho" onerror="this.parentNode.innerHTML='♿'">
+      </div>
+      <div class="card-body">
+        <span class="card-category">Saúde & Mobilidade</span>
+        <p class="card-title">Cadeira de Banho Dobrável com Rodas — Higiênica para Idosos</p>
+        <div class="card-footer">
+          <div class="price-block">
+            <div class="price">R$180<span class="price-cents">,06</span></div>
+          </div>
+          <span class="commission">+16%</span>
+        </div>
+      </div>
+      <a class="card-cta" href="https://www.mercadolivre.com.br/cadeira-banho-idoso?affiliate_id=SEU_ID_AQUI" target="_blank" rel="nofollow sponsored">Ver Oferta →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- BANNER TELEGRAM -->
+<div class="telegram-banner" id="sobre">
+  <div class="telegram-text">
+    <h2>RECEBA OFERTAS EM PRIMEIRA MÃO</h2>
+    <p>Entre no canal do Telegram e seja notificado antes de todo mundo quando rolar promoção.</p>
+  </div>
+  <a href="https://t.me/allgasdeals" class="telegram-btn" target="_blank">Entrar no Canal ✈</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">ALLGASDEALS</div>
+    <p style="margin-top:4px">Curadoria de ofertas por <a href="https://instagram.com/taldeallgas" style="color:var(--accent);text-decoration:none">@taldeallgas</a></p>
+  </div>
+  <p>Parceiro oficial Mercado Livre · Links com comissão · © 2025</p>
+</footer>
+
+<script>
+function filterProducts(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = document.querySelectorAll('.card');
+  let visible = 0;
+  cards.forEach(card => {
+    const match = category === 'all'
+      || card.dataset.category === category
+      || (category === 'extra' && card.dataset.extra === 'true');
+    card.style.display = match ? 'flex' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('product-count').textContent = visible + ' produto' + (visible !== 1 ? 's' : '');
+}
+
+// Contador animado
+function animateCount(el, target) {
+  let current = 0;
+  const step = Math.ceil(target / 20);
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = current;
+    if (current >= target) clearInterval(timer);
+  }, 60);
+}
+animateCount(document.getElementById('count-products'), 18);
+</script>
+</body>
+</html>
